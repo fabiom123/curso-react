@@ -1,11 +1,13 @@
 import React,{Fragment} from 'react';
 import PropTypes from 'prop-types';
-
-const Curso = props => (
+import {Link} from "react-router-dom";
+const CourseCard = props => (
     <Fragment>
         <article className="card" id="props.title">
-        <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
-                <img src={ props.image } alt={ props.title }/>
+            <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
+                <Link to={`cursos/${props.id}`}>
+                    <img src={ props.image } alt={ props.title }/>
+                </Link>
             </div>
             <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
                 <h3 className="center">
@@ -31,14 +33,14 @@ const Curso = props => (
     </Fragment>
   )
 
-  Curso.propTypes = {
+  CourseCard.propTypes = {
     title:PropTypes.string,
     image:PropTypes.string,
     price:PropTypes.number,
     profesor:PropTypes.string
   }
 
-  Curso.defaultProps = {
+  CourseCard.defaultProps = {
       title:"No se encontró titulo",
       image:"https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled.png",
       price:0,
@@ -46,4 +48,4 @@ const Curso = props => (
       img_prof:"https://www.avatarproject.it/sites/default/files/project/Marotta-Russo-Not-Found.jpg"
   }
   
-  export default Curso;
+  export default CourseCard;
